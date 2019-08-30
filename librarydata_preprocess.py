@@ -108,7 +108,7 @@ def start_consuming(config, csvwriter):
     for msg in consumer:
         message = msg.value  # extract the row of data, the value from the json message
         messageid = list(message.keys())[0]  # Extract messageid
-        message = [message[messageid] + [messageid]]  # Create list of data with messageid at end
+        message = message[messageid] + [messageid]  # Create list of data with messageid at end
         library_write(csvwriter, message)  # Write to csv
 
 
