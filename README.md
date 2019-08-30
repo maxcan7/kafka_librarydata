@@ -1,5 +1,5 @@
 # kafka_librarydata
-This coding challenge uses Brooklyn library data (not provided).
+This coding challenge uses Brooklyn library data (not provided). It builds off my prior repo, codingchallenge_librarydata, but adds a kafka ingestion step.
 
 The purpose of this pipeline is to read a json file into python, do some cleaning, transform it into a specific format, produce it as a kafka message, consume it, then write it to a csv. Kafka is being run locally with one broker and one partition; it is not efficient, just a proof of concept to demonstrate kafka ingestion.
 
@@ -8,11 +8,11 @@ This pipeline requires python3, zookeeper, and kafka
 
 **The following python packages are required for librarydata_preprocess.py**:  
 configparser  
-json
-csv
-time
-kafka (kafka-python)
-uuid
+json  
+csv  
+time  
+kafka (kafka-python)  
+uuid  
 
 ## Config
 You will need to create a .ini file as a config with the following sections:
@@ -28,8 +28,8 @@ rename_to=the new variable names in the same order as above, comma-separated
 split_from=variables that need to be split e.g. splitting begin and end times, comma-separated  
 split_to=the new variables from the split, comma-separated within split variables and semicolon-separated between split variables e.g. monday, tuesday in split_from might look like monday_start, monday_end; tuesday_start, tuesday_end  
 splitter=the separator e.g. blank, - , (an actual comma) , ; , etc.  
-kafkahost=localhost:9092 (or your kafka server and port)
-kafkatopic=library_data (or preferred kafka topic name)
+kafkahost=localhost:9092 (or your kafka server and port)  
+kafkatopic=library_data (or preferred kafka topic name)  
 
 **configpath.py**  
 A python script that only contains a string with the path for the .ini file. My .ini file is in the main directory but it should be flexible.
