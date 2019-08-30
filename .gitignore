@@ -1,0 +1,9 @@
+__pycache__/*
+libraries.json
+libout.csv
+configpath.py
+librarydata_config.ini
+desktop.ini
+data/*
+logs/*
+create_kafkatopic.py
